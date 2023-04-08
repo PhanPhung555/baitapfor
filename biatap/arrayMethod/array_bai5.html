@@ -1,36 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Luyện Tập Mảng 1 - Bài 5</title>
 </head>
+
 <body>
     <script>
-        let a ;
-        do{
+        let a;
+        do {
             a = +prompt('Length Array')
-        }while(a < 0 || a > 20);
+        } while (a < 0 || a > 20);
         let arr = new Array(a);
-        for(i = 0; i < arr.length ; i++){
+        for (i = 0; i < arr.length; i++) {
             arr[i] = prompt('INDEX ' + i)
         }
-        for(let value of arr){
-            if(value < 0){
+        /* 
+        B1 : DÙNG FOR OF ĐỂ LẤY RA CÁC GIÁ TRỊ 
+        B2 : DÙNG IF ĐỂ LẤY CÁC GIÁ TRỊ NHỎ HƠN 0
+        B3 : TẠO SUM = 0 
+        B4 : DÙNG FOR ĐỂ KIỂM TRA VỊ TRỊ CÁC GIÁ TRỊ ÂM VÀ CỘNG DỒN VÀO SUM
+        
+        */
+        for (let value of arr) {
+            if (value < 0) {
+                let sum = 0;
                 document.write('Số nguyên âm là' + value + '<br>')
-            }else{
-                document.write('Số Nguyên Dương là ' + value + '<br>')  
+                for (i = 0; i < arr.length; i++) {
+                    if (arr[i] < 0) {
+                        sum++;
+                    }
+                }
+                document.write(sum);
+            } else {
+                document.write('Số Nguyên Dương là ' + value + '<br>')
             }
         }
-        // let arr1 = arr.forEach(function(value){
-        //     if(value < 0){
-        //         document.write(value)
-        //     }else {
-        //         document.write(value)
-        //     }
-        // });
-        // document.write(arr1)
+
     </script>
 </body>
+
 </html>

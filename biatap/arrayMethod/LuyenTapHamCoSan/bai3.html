@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyện Tập Hàm Có Sẳn Của Mảng - Bài 3</title>
+</head>
+
+<body>
+    <script>
+        let str = prompt('String Length');
+        let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let LOWER = 'abcdefghijklmnopqrstuvwxyz';
+        let relust = [];
+        for (i = 0; i < str.length; i++) {
+            if (UPPER.indexOf(str[i] !== -1)) {
+               relust.push(str[i].toLowerCase());
+            } else if (LOWER.indexOf(str[i]) !== -1) {
+               relust.push(str[i].toUpperCase());
+            } else{
+               relust.push(str[i]);
+            }
+        };
+        console.log(relust.join(''));
+    </script>
+</body>
+
+</html>

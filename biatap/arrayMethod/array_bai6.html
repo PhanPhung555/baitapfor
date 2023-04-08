@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Luyện Tập 1 - Bài 6</title>
 </head>
 <body>
     <script>
@@ -16,9 +16,17 @@
         for(i = 0; i < arr.length; i++){
             arr[i] = prompt('Mảng' + i)
         };
+        let number = + prompt('Number is ')
         for(let value of arr){
             if(Number.isInteger(value)){
-                document.write('Số Nguyên là' + value + '<br>')
+                document.write('Số Nguyên là' + value + '<br>');
+                for(i = 0; i < arr[i] ; i++){
+                    if(arr[i].includes(number,0)){
+                        console.log('V is in the array');
+                    } else{
+                        console.log('V is not in the array');
+                    }
+                }
             }else{
                 document.write('Đây không phải là số nguyên' + value + '<br>')
             }
