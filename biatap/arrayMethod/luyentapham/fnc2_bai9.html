@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyện tập tạo và sử dụng hàm 02 - Bài 9</title>
+</head>
+<body>
+    <script>
+        let a = +prompt('INDEX')
+        let arr = new Array(a);
+        for( j = 0; j < arr.length; j++){
+            arr[j] = prompt('KÍ TỰ ' + j)
+        }
+        MyFnction = (arr1,Str) => {
+            let sum = 0;
+            let num;
+            for( i = 0 ;i < arr1.length ; i++){
+                if( arr1[i] == Str){
+                    sum += Str.length
+                } else{
+                     alert(-1)
+                }
+            } 
+            document.write(sum)
+        };
+        MyFnction(arr,prompt('NEW'))
+
+    </script>
+</body>
+</html>

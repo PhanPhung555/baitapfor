@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyện tập tạo và sử dụng hàm 02 - Bài 5</title>
+</head>
+<body>
+    <script>
+        NumberFcn = (a,b,c) =>{
+            a < b && a < c ? alert(a + ' Number Nhỏ nhất'): b < c && b < a ? alert(b + ' Number Nhỏ nhất'): alert(' Number Nhỏ nhất' + c);
+        };
+        NumberFcn(+prompt('A'),+prompt('B'),+prompt('C'))
+    </script>
+</body>
+</html>
