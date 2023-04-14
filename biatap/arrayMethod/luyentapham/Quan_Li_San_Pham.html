@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <title>Document</title>
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+        }
+
+        .box1 {
+            margin: 40px;
+        }
+
+        #btn {
+            margin: 0;
+        }
+
+        button {
+            margin-left: 30px;
+            margin-top: 20px;
+            background-color: rgb(112, 221, 112);
+
+        }
+
+        p {
+            display: none;
+            text-align: center;
+            color: #fff;
+            font-family: 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            border-radius: 3px;
+            font-weight: 100;
+            background: linear-gradient(to right, rgb(160, 138, 138), rgb(106, 150, 106), rgb(205, 95, 179));
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <label for="">ID</label>
+        <input type="number" id="ip1">
+        <label for="">Lớp</label>
+        <input type="text" id="ip2">
+        <label for="">Đăng Kí Mã Học Viên</label>
+        <input type="text" id="ip3">
+        <button onclick="display()" id="btn">ADD</button>
+    </div>
+
+    <table class="table table-striped" id="table_1">
+        <tr>
+            <th>Id</th>
+            <th> Họ Và TênTên</th>
+            <th> Đăng Kí Mã Học Viên</th>
+            <th> Delete, Edit </th>
+        </tr>
+    </table>
+    <p id="relust"></p>
+    <script>
+        let arr = [];
+        function display() {
+            let a = document.getElementById('ip1').value;
+            let b = document.getElementById('ip2').value;
+            let c = document.getElementById('ip3').value;
+
+            let ObjectItem = {
+                ID: a,
+                Name: b,
+                Stude_class: c,
+            };
+            let index = arr.findIndex((c) => c.ID == ObjectItem.ID);
+            if(index >= 0){
+                arr.splice(index,1,ObjectItem)
+            } else{
+                arr.push(ObjectItem);
+            }
+            TabEleMent();
+            clear()
+        };
+
+        function TabEleMent() {
+            tab = `<tr>
+            <th>Id</th>
+            <th> Họ Và Tên</th>
+            <th> Đăng Kí Mã Học Viên</th>
+            <th> Delete, Edit </th>
+        </tr>`;
+            Pelement = `
+            <p> Bạn Có Thật Sự Muốn Xóa ?
+                <button> Yes </button>
+                <button> No </button>  
+            </p>
+            `
+            for (i = 0; i < arr.length; i++) {
+                tab += `<tr>
+            <td>${arr[i].ID}</td>
+            <td>${arr[i].Name}</td>
+            <td>${arr[i].Stude_class}</td>
+            <td> 
+                <button onclick=Delete(${arr[i].ID})>Delete</button>
+                <button onclick=edit(${arr[i].ID})>Edit</button>
+            </td>
+        </tr>`;
+                Pelement = `
+            <h6> Bạn Có Thật Sự Muốn Xóa ? </h6>
+            <button onclick=Yes(${arr[i].ID})> Yes </button>
+            <button  onclick=No()> No </button>
+            `
+            };
+            document.getElementById('table_1').innerHTML = tab;
+            document.getElementById('relust').innerHTML = Pelement;
+        };
+
+        function clear() {
+            document.getElementById('ip1').value = '';
+            document.getElementById('ip2').value = '';
+            document.getElementById('ip3').value = '';
+        };
+        function Delete() {
+            let ElementOb = document.getElementById('relust');
+            Object.assign(ElementOb.style, {
+                display: 'block',
+                width: '400px',
+                height: '150px'
+            })
+        };
+        function Yes(i) {
+            for (j = 0; j < arr.length; j++) {
+                if (arr[j].ID == i) {
+                    arr.splice(j, 1);
+                    document.getElementById('relust').style.display = 'none';
+                    TabEleMent();
+                }
+            }
+        };
+        function No() {
+            document.getElementById('relust').style.display = 'none';
+        };
+        function edit(i) {
+            for (j = 0; j < arr.length; j++) {
+                if (arr[j].ID == i) {
+                    document.getElementById('ip1').value = arr[j].ID;
+                    document.getElementById('ip2').value = arr[j].Name;
+                    document.getElementById('ip3').value = arr[j].Stude_class;
+                    TabEleMent()
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
