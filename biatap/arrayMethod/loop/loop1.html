@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lập Trình Hướng Đối Tượng 1 - Bài 1</title>
+</head>
+<body>
+    <input type="number" id="id1">
+    <input type="number" id="id2">
+    <button onclick="btn()">Click</button>
+    <p id="relust"></p>
+    <p id="relust1"> Diện Tích Diện Tích là :</p>
+    <p id="relust2"> Chu Vi Diện Tích Là :</p>
+    <script>
+        function btn(){
+            let id1 = document.getElementById('id1').value;
+            let id2 = document.getElementById('id2').value;
+            class Rectangle{
+                constructor(int1,int2){
+                    this.WidthS = int1 ;
+                    this.HeightS = int2;
+                }
+                S(){
+                    if(this.WidthS > this.HeightS){
+                        return this.WidthS  * this.HeightS;
+                    } else if(this.WidthS == this.HeightS){
+                        alert('Bạn Vừa Nhập Vào là hình vuông !')
+                    } else{
+                        for(i = 0 ; i < 2 ;i++){
+                            alert('Bạn Cần Nhập Vào Chiều Dài ,Chiều Rộng ?')
+                        }
+                    }
+                };
+                P(){
+                    return (this.WidthS + this.HeightS) *  2;
+                };
+                SP(){
+                    let a = document.getElementById('relust');
+                    Object.assign(a.style,{
+                        width :this.WidthS + 'px',
+                        height : this.HeightS + 'px',
+                        background :'red'
+                    })
+                }
+            };
+            let Selement = new Rectangle(id1,id2);
+            document.getElementById('relust1').innerHTML = Selement.S();
+            document.getElementById('relust2').innerHTML = Selement.P();
+            document.getElementById('relust').innerHTML = Selement.SP()
+        }
+    </script>
+</body>
+</html>
